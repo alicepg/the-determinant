@@ -6,8 +6,8 @@ author: "Elin Andersson"
 authorBio: "MSc Public Health Science '28 · Features Editor"
 published: true
 coverStory: true
-coverImage: ""
-imageCredit: "Students gather outside the Academy after a community health workshop. Photo: Placeholder / The Determinant"
+coverImage: "/images/gothenburg-library.png"
+imageCredit: "The University of Gothenburg library. Photo: University of Gothenburg"
 excerpt: "From neighbourhood outreach to open-data dashboards, a new generation at Sahlgrenska Academy is asking where health is really made."
 readTime: 8
 ---
