@@ -71,22 +71,15 @@ layout: base.njk
   </article>
 
   {# ── Read next ───────────────────────────────────────────────────────── #}
-  {% set related = collections.articles
-    | selectattr("data.category", "equalto", category)
-    | rejectattr("url", "equalto", page.url)
-    | list %}
-  {% if related | length < 3 %}
-    {% set extra = collections.articles
-      | rejectattr("url", "equalto", page.url)
-      | rejectattr("data.category", "equalto", category)
-      | list %}
-    {% set related = (related + extra) | list %}
-  {% endif %}
-  {% if related | length > 0 %}
+  {% set others = collections.all | publishedOnly | excludeUrl(page.url) %}
+  {% set samecat = others | byCategory(category) | limit(3) %}
+  {% set anythree = others | limit(3) %}
+  {% set readnext = samecat if samecat | length > 0 else anythree %}
+  {% if readnext | length > 0 %}
   <section class="read-next" aria-label="Read next">
     <h2 class="read-next-head">Read next</h2>
     <div class="read-next-grid">
-      {% for item in related | slice(0, 3) %}
+      {% for item in readnext %}
       <a href="{{ item.url }}" class="read-next-card">
         {% if item.data.coverImage %}
         <img src="{{ item.data.coverImage }}" alt="{{ item.data.title }}" class="card-img" loading="lazy">
