@@ -53,8 +53,13 @@
 
   {# ── Masthead ─────────────────────────────────────────────────────────── #}
   <header class="masthead">
-    <a href="/"><h1>{{ settings.siteTitle }}</h1></a>
-    <p class="tagline">{{ settings.tagline }}</p>
+    <a href="/" class="masthead-inner">
+      <img src="/images/ecosgp-logo.png" alt="EcoSGP logo" class="masthead-logo">
+      <div class="masthead-text">
+        <h1>{{ settings.siteTitle }}</h1>
+        <p class="tagline">{{ settings.tagline }}</p>
+      </div>
+    </a>
   </header>
   <div class="double-rule" aria-hidden="true"></div>
 

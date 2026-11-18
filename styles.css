@@ -11,7 +11,7 @@
   --rule-dark: #1A4D8F;
   --paper: #ffffff;
   --paper-tint: #f0f4f9;
-  --accent: #8c1d2f;
+  --accent: #2E6DB4;
   --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --maxw: 1200px;
@@ -92,13 +92,13 @@ a:hover { color: var(--accent); }
 .utility .edition strong { color: var(--ink); font-weight: 600; }
 .btn-subscribe {
   display: inline-block;
-  background: var(--ink);
+  background: var(--accent);
   color: #fff;
   font: 600 12px/1 var(--sans);
   letter-spacing: .08em;
   text-transform: uppercase;
   padding: 10px 16px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--accent);
   transition: background .15s, border-color .15s;
   white-space: nowrap;
 }
@@ -106,10 +106,23 @@ a:hover { color: var(--accent); }
 
 /* ---------- Masthead ---------- */
 .masthead {
-  text-align: center;
-  padding: 34px 24px 18px;
+  padding: 28px 24px 18px;
+  display: flex;
+  justify-content: center;
 }
-.masthead a { display: inline-block; }
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  text-decoration: none;
+}
+.masthead-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.masthead-text { text-align: left; }
 .masthead h1 {
   margin: 0;
   font-family: var(--serif);
@@ -118,9 +131,10 @@ a:hover { color: var(--accent); }
   line-height: 1;
   letter-spacing: .01em;
   text-transform: uppercase;
+  color: var(--ink);
 }
 .masthead .tagline {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   font-size: 13px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -131,7 +145,7 @@ a:hover { color: var(--accent); }
   margin: 0 auto;
   height: 6px;
   border-top: 3px solid var(--rule-dark);
-  border-bottom: 1px solid var(--rule-dark);
+  border-bottom: 1px solid var(--accent);
 }
 
 /* ---------- Sticky nav ---------- */
@@ -663,7 +677,8 @@ blockquote.pull cite {
   .utility .wrap { flex-direction: column; align-items: flex-start; padding-top: 10px; padding-bottom: 10px; gap: 8px; }
   .utility .edition { font-size: 12px; line-height: 1.4; }
   .btn-subscribe { width: 100%; text-align: center; }
-  .masthead { padding-top: 24px; }
+  .masthead { padding-top: 20px; }
+  .masthead-logo { width: 52px; height: 52px; }
   .nav ul { justify-content: flex-start; }
   .nav a { padding: 0 12px; }
   .section-head { flex-direction: column; gap: 4px; }
