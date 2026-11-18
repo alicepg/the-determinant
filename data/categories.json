@@ -1,13 +1,13 @@
 [
   {
     "id": "news-policy",
-    "name": "News &amp; Policy",
+    "name": "News & Policy",
     "slug": "News & Policy",
     "blurb": "Health policy, university decisions and what they mean for students"
   },
   {
     "id": "research-data",
-    "name": "Research &amp; Data",
+    "name": "Research & Data",
     "slug": "Research & Data",
     "blurb": "Findings, methods and datasets from across the Academy"
   },
@@ -19,7 +19,7 @@
   },
   {
     "id": "career-alumni",
-    "name": "Career &amp; Alumni",
+    "name": "Career & Alumni",
     "slug": "Career & Alumni",
     "blurb": "Pathways, advice and stories from graduates"
   },
