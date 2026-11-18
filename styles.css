@@ -117,8 +117,8 @@ a:hover { color: var(--accent); }
   text-decoration: none;
 }
 .masthead-logo {
-  width: 110px;
-  height: 110px;
+  width: 155px;
+  height: 155px;
   object-fit: contain;
   flex-shrink: 0;
 }
