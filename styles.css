@@ -141,11 +141,7 @@ a:hover { color: var(--accent); }
   color: var(--ink-soft);
 }
 .double-rule {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  height: 6px;
-  border-top: 3px solid var(--rule-dark);
-  border-bottom: 1px solid var(--accent);
+  border-top: 1px solid var(--rule);
 }
 
 /* ---------- Sticky nav ---------- */
