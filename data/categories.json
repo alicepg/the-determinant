@@ -1,0 +1,32 @@
+[
+  {
+    "id": "news-policy",
+    "name": "News &amp; Policy",
+    "slug": "News & Policy",
+    "blurb": "Health policy, university decisions and what they mean for students"
+  },
+  {
+    "id": "research-data",
+    "name": "Research &amp; Data",
+    "slug": "Research & Data",
+    "blurb": "Findings, methods and datasets from across the Academy"
+  },
+  {
+    "id": "global-perspectives",
+    "name": "Global Perspectives",
+    "slug": "Global Perspectives",
+    "blurb": "Health systems, crises and ideas from around the world"
+  },
+  {
+    "id": "career-alumni",
+    "name": "Career &amp; Alumni",
+    "slug": "Career & Alumni",
+    "blurb": "Pathways, advice and stories from graduates"
+  },
+  {
+    "id": "campus-life",
+    "name": "Campus Life",
+    "slug": "Campus Life",
+    "blurb": "Student culture, community and everyday life at the Academy"
+  }
+]
