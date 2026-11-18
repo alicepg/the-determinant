@@ -14,53 +14,58 @@ permalink: /archive/index.html
 
   {% for volLabel, volArticles in grouped %}
   <section class="archive-volume">
-    <div class="archive-volume-head">
-      <h2>{{ volLabel }}</h2>
-    </div>
+    <details {% if loop.first %}open{% endif %}>
+      <summary class="archive-volume-head">
+        <h2>{{ volLabel }}</h2>
+        <span class="archive-toggle-icon" aria-hidden="true"></span>
+      </summary>
 
-    {% for cat in categories %}
-    {% set catArticles = volArticles | byCategory(cat.slug) %}
-    {% if catArticles.length %}
-    <div class="archive-category">
-      <h3>{{ cat.name }}</h3>
-      <ul class="archive-list">
-        {% for art in catArticles %}
-        <li>
-          <a href="{{ art.url }}">
-            <span class="archive-title">{{ art.data.title }}</span>
-            <span class="archive-meta">
-              {{ art.data.author }} ·
-              <time datetime="{{ art.data.date | dateISO }}">{{ art.data.date | dateDisplay }}</time>
-            </span>
-          </a>
-        </li>
+      <div class="archive-volume-body">
+        {% for cat in categories %}
+        {% set catArticles = volArticles | byCategory(cat.slug) %}
+        {% if catArticles.length %}
+        <div class="archive-category">
+          <h3>{{ cat.name }}</h3>
+          <ul class="archive-list">
+            {% for art in catArticles %}
+            <li>
+              <a href="{{ art.url }}">
+                <span class="archive-title">{{ art.data.title }}</span>
+                <span class="archive-meta">
+                  {{ art.data.author }} ·
+                  <time datetime="{{ art.data.date | dateISO }}">{{ art.data.date | dateDisplay }}</time>
+                </span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
         {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    {% endfor %}
 
-    {# Op-Eds / other categories not in main list #}
-    {% set opeds = volArticles | byCategory("Op-Ed") %}
-    {% if opeds.length %}
-    <div class="archive-category">
-      <h3>Op-Ed</h3>
-      <ul class="archive-list">
-        {% for art in opeds %}
-        <li>
-          <a href="{{ art.url }}">
-            <span class="archive-title">{{ art.data.title }}</span>
-            <span class="archive-meta">
-              {{ art.data.author }} ·
-              <time datetime="{{ art.data.date | dateISO }}">{{ art.data.date | dateDisplay }}</time>
-            </span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
+        {# Op-Eds / other categories not in main list #}
+        {% set opeds = volArticles | byCategory("Op-Ed") %}
+        {% if opeds.length %}
+        <div class="archive-category">
+          <h3>Op-Ed</h3>
+          <ul class="archive-list">
+            {% for art in opeds %}
+            <li>
+              <a href="{{ art.url }}">
+                <span class="archive-title">{{ art.data.title }}</span>
+                <span class="archive-meta">
+                  {{ art.data.author }} ·
+                  <time datetime="{{ art.data.date | dateISO }}">{{ art.data.date | dateDisplay }}</time>
+                </span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
 
+    </details>
   </section>
   {% endfor %}
 
