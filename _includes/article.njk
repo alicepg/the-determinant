@@ -70,4 +70,38 @@ layout: base.njk
     <a class="read-more back-link" href="/">← Back to the front page</a>
   </article>
 
+  {# ── Read next ───────────────────────────────────────────────────────── #}
+  {% set related = collections.articles
+    | selectattr("data.category", "equalto", category)
+    | rejectattr("url", "equalto", page.url)
+    | list %}
+  {% if related | length < 3 %}
+    {% set extra = collections.articles
+      | rejectattr("url", "equalto", page.url)
+      | rejectattr("data.category", "equalto", category)
+      | list %}
+    {% set related = (related + extra) | list %}
+  {% endif %}
+  {% if related | length > 0 %}
+  <section class="read-next" aria-label="Read next">
+    <h2 class="read-next-head">Read next</h2>
+    <div class="read-next-grid">
+      {% for item in related | slice(0, 3) %}
+      <a href="{{ item.url }}" class="read-next-card">
+        {% if item.data.coverImage %}
+        <img src="{{ item.data.coverImage }}" alt="{{ item.data.title }}" class="card-img" loading="lazy">
+        {% else %}
+        <div class="ph r32 c{{ loop.index }}"></div>
+        {% endif %}
+        <div class="read-next-info">
+          <span class="tag">{{ item.data.category }}</span>
+          <h3>{{ item.data.title }}</h3>
+          <p class="byline">{{ item.data.author }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
 </main>
