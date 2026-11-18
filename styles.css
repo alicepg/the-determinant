@@ -154,7 +154,7 @@ a:hover { color: var(--accent); }
   top: 0;
   z-index: 50;
   background: var(--paper);
-  border-bottom: 2px solid var(--rule-dark);
+  border-bottom: 1px solid var(--rule);
 }
 .nav .wrap { padding: 0; }
 .nav ul {
@@ -163,7 +163,7 @@ a:hover { color: var(--accent); }
   padding: 0 12px;
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -178,11 +178,11 @@ a:hover { color: var(--accent); }
   letter-spacing: .09em;
   text-transform: uppercase;
   white-space: nowrap;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px; /* overlaps nav border so active underline shows on top */
+  color: var(--ink-soft);
+  transition: background .15s, color .15s;
 }
-.nav a:hover,
-.nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+.nav a:hover { color: var(--accent); }
+.nav a.active { background: var(--accent); color: #fff; }
 
 section[id], #top { scroll-margin-top: calc(var(--nav-h) + 8px); }
 
