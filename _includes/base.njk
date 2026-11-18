@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {# ── Page title ──────────────────────────────────────────────────────── #}
+  <title>{% if title %}{{ title }} — {% endif %}{{ settings.siteTitle }}</title>
+  <meta name="description" content="{{ excerpt if excerpt else settings.tagline }}">
+
+  {# ── Open Graph / Twitter Card (populated for article pages) ─────────── #}
+  {% if title %}
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="{{ title }}">
+  <meta property="og:description" content="{{ excerpt if excerpt else settings.tagline }}">
+  <meta property="og:site_name"   content="{{ settings.siteTitle }}">
+  {% if coverImage %}
+  <meta property="og:image"       content="{{ coverImage }}">
+  {% elif settings.defaultCoverImage %}
+  <meta property="og:image"       content="{{ settings.defaultCoverImage }}">
+  {% endif %}
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{ title }}">
+  <meta name="twitter:description" content="{{ excerpt if excerpt else settings.tagline }}">
+  {% else %}
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="{{ settings.siteTitle }}">
+  <meta property="og:description" content="{{ settings.tagline }}">
+  {% endif %}
+
+  {# ── Fonts ───────────────────────────────────────────────────────────── #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  {# ── Analytics placeholder ───────────────────────────────────────────── #}
+  <!-- ANALYTICS: drop your Cloudflare Web Analytics beacon here -->
+  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script> -->
+</head>
+<body id="top">
+
+  {# ── Utility bar ──────────────────────────────────────────────────────── #}
+  <div class="utility">
+    <div class="wrap">
+      <div class="edition">
+        <strong>{{ settings.utilityLine }}</strong> | Sahlgrenska Academy, University of Gothenburg
+      </div>
+      <a class="btn-subscribe" href="/#subscribe">Subscribe to Monthly Issue</a>
+    </div>
+  </div>
+
+  {# ── Masthead ─────────────────────────────────────────────────────────── #}
+  <header class="masthead">
+    <a href="/"><h1>{{ settings.siteTitle }}</h1></a>
+    <p class="tagline">{{ settings.tagline }}</p>
+  </header>
+  <div class="double-rule" aria-hidden="true"></div>
+
+  {# ── Sticky navigation ────────────────────────────────────────────────── #}
+  <nav class="nav" aria-label="Categories">
+    <div class="wrap">
+      <ul>
+        <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
+        {% for cat in categories %}
+        <li>
+          <a href="/#{{ cat.id }}"
+             {% if page.url and cat.slug == category %}class="active"{% endif %}>
+            {{ cat.name }}
+          </a>
+        </li>
+        {% endfor %}
+        <li><a href="/archive/" {% if page.url == "/archive/" %}class="active"{% endif %}>Archive</a></li>
+        <li><a href="/team/"    {% if page.url == "/team/"    %}class="active"{% endif %}>Our Team</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  {# ── Page content ─────────────────────────────────────────────────────── #}
+  {{ content | safe }}
+
+  {# ── Footer ───────────────────────────────────────────────────────────── #}
+  <footer class="footer" id="subscribe">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <h4>Subscribe to the Monthly Issue</h4>
+          <p>One email a month with the best of our reporting, research and campus life. Free for students and alumni.</p>
+          {% if settings.subscribeFormUrl %}
+          <a class="btn-subscribe" href="{{ settings.subscribeFormUrl }}" style="margin-top:12px;display:inline-block;">Subscribe</a>
+          {% else %}
+          <form class="sub-form" onsubmit="event.preventDefault(); this.innerHTML='<p>Thanks! We\'ll be in touch.</p>';">
+            <input type="email" placeholder="you@student.gu.se" aria-label="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <p style="font-size:12.5px;margin-top:8px;color:var(--ink-faint);">(Subscription backend not yet connected — coming soon.)</p>
+          {% endif %}
+        </div>
+        <div>
+          <h4>Sections</h4>
+          <ul>
+            {% for cat in categories %}
+            <li><a href="/#{{ cat.id }}">{{ cat.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="/team/">Our Team</a></li>
+            <li><a href="/archive/">Past Issues</a></li>
+            <li><a href="mailto:editor@thedeterminant.se">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal">
+        {{ settings.footerDisclaimer }}
+      </div>
+    </div>
+  </footer>
+
+  {# ── Scripts ──────────────────────────────────────────────────────────── #}
+  <script>
+    // Highlight the nav link of the section in view (homepage only)
+    (function () {
+      if (window.location.pathname !== '/') return;
+      var links = document.querySelectorAll('.nav a');
+      var map = {};
+      links.forEach(function (a) { map[a.getAttribute('href')] = a; });
+      var sections = document.querySelectorAll('section.category');
+      if (!('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (a) { a.classList.remove('active'); });
+            var l = map['/#' + e.target.id];
+            if (l) l.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      sections.forEach(function (s) { io.observe(s); });
+      window.addEventListener('scroll', function () {
+        if (window.scrollY < 300) {
+          links.forEach(function (a) { a.classList.remove('active'); });
+          if (map['/']) map['/'].classList.add('active');
+        }
+      }, { passive: true });
+    })();
+  </script>
+
+  {# ── Analytics placeholder (before </body>) ───────────────────────────── #}
+  <!-- ANALYTICS: alternatively place your beacon script here -->
+</body>
+</html>

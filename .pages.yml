@@ -1,0 +1,125 @@
+media: public/images
+
+content:
+
+  # ── 1. Magazine-wide settings ──────────────────────────────────────────────
+  - name: settings
+    label: "Magazine Settings"
+    type: file
+    path: data/settings.json
+    format: json
+    fields:
+      - name: siteTitle
+        label: "Magazine Name"
+        type: string
+      - name: tagline
+        label: "Tagline (under masthead)"
+        type: string
+      - name: utilityLine
+        label: "Utility Bar Text (e.g. Vol. 1, Issue 1 · Monthly Edition)"
+        type: string
+      - name: volumeNumber
+        label: "Volume Number (e.g. Vol. 1)"
+        type: string
+      - name: issueSubtitle
+        label: "Issue Subtitle (e.g. Issue 1 · Autumn 2026)"
+        type: string
+      - name: editorialNote
+        label: "Editorial Note"
+        type: text
+      - name: footerDisclaimer
+        label: "Footer Disclaimer"
+        type: text
+      - name: defaultCoverImage
+        label: "Default Cover Image (fallback when article has none)"
+        type: image
+      - name: subscribeFormUrl
+        label: "Subscribe Form URL (leave blank to show placeholder form)"
+        type: string
+
+  # ── 2. Team members ────────────────────────────────────────────────────────
+  - name: team
+    label: "Team Members"
+    type: file
+    path: data/team.json
+    format: json
+    fields:
+      - name: members
+        label: Members
+        list: true
+        fields:
+          - name: name
+            label: "Full Name"
+            type: string
+          - name: role
+            label: "Role / Title"
+            type: string
+          - name: programme
+            label: "Programme & Year"
+            type: string
+          - name: photo
+            label: "Photo"
+            type: image
+          - name: bio
+            label: "Short Bio"
+            type: text
+          - name: order
+            label: "Display Order (1 = first)"
+            type: number
+
+  # ── 3. Articles collection ─────────────────────────────────────────────────
+  - name: articles
+    label: Articles
+    type: collection
+    path: content/articles
+    view:
+      fields: [title, category, date, published]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: "Title"
+        type: string
+      - name: category
+        label: "Category"
+        type: select
+        options:
+          - "News & Policy"
+          - "Research & Data"
+          - "Global Perspectives"
+          - "Career & Alumni"
+          - "Campus Life"
+          - "Op-Ed"
+      - name: volume
+        label: "Volume (e.g. Vol. 1 - Autumn 2026)"
+        type: string
+      - name: date
+        label: "Publication Date"
+        type: date
+      - name: author
+        label: "Author Name"
+        type: string
+      - name: authorBio
+        label: "Author Bio / Programme (e.g. MSc Global Health '28)"
+        type: string
+      - name: published
+        label: "Published (uncheck to save as draft)"
+        type: boolean
+      - name: coverStory
+        label: "Pin as Cover Story"
+        type: boolean
+      - name: coverImage
+        label: "Cover Image"
+        type: image
+      - name: imageCredit
+        label: "Image Credit (optional)"
+        type: string
+      - name: excerpt
+        label: "Excerpt / Subtitle (1–2 sentences)"
+        type: text
+      - name: readTime
+        label: "Read Time (minutes)"
+        type: number
+      - name: body
+        label: "Article Body"
+        type: rich-text

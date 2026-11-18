@@ -1,0 +1,81 @@
+---
+layout: base.njk
+---
+{# ── Gather and sort published articles ────────────────────────────────── #}
+{% set allArticles = collections.articles | publishedOnly | sortByDate %}
+{% set cover = allArticles | coverStory %}
+{% set latestItems = allArticles | excludeUrl(cover.url) | limit(5) %}
+
+<main class="wrap">
+
+  {# ── Hero grid ─────────────────────────────────────────────────────────── #}
+  <div class="hero">
+
+    {# Cover story #}
+    <article class="cover">
+      <a href="{{ cover.url }}" aria-label="Read the cover story">
+        {% if cover.data.coverImage %}
+        <img src="{{ cover.data.coverImage }}" alt="{{ cover.data.title }}" loading="lazy" class="cover-img">
+        {% else %}
+        <div class="ph r169 c1"></div>
+        {% endif %}
+      </a>
+      <span class="tag">Cover Story · {{ cover.data.category }}</span>
+      <h2><a href="{{ cover.url }}">{{ cover.data.title }}</a></h2>
+      <p class="byline">By <strong>{{ cover.data.author }}</strong>{% if cover.data.authorBio %}, {{ cover.data.authorBio }}{% endif %} · <time datetime="{{ cover.data.date | dateISO }}">{{ cover.data.date | dateDisplay }}</time></p>
+      <p class="excerpt">{{ cover.data.excerpt }}</p>
+      <a class="read-more" href="{{ cover.url }}">Read the full story</a>
+    </article>
+
+    {# Sidebar — latest articles #}
+    <aside class="sidebar" aria-label="Latest and Op-Eds">
+      <h3>Latest &amp; Op-Eds</h3>
+      <ol class="latest">
+        {% for art in latestItems %}
+        <li>
+          <div>
+            <span class="tag">{{ art.data.category }}</span>
+            <h4><a href="{{ art.url }}">{{ art.data.title }}</a></h4>
+            <p class="byline">{{ art.data.author }}</p>
+          </div>
+          {% if art.data.coverImage %}
+          <img src="{{ art.data.coverImage }}" alt="" loading="lazy" class="sidebar-thumb">
+          {% else %}
+          <div class="ph sq c{{ loop.index + 1 }}"></div>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </aside>
+
+  </div>{# /hero #}
+
+  {# ── Category sections ─────────────────────────────────────────────────── #}
+  {% for cat in categories %}
+  {% set catArticles = allArticles | byCategory(cat.slug) | limit(3) %}
+  {% if catArticles.length %}
+  <section class="category" id="{{ cat.id }}">
+    <div class="section-head">
+      <h2>{{ cat.name }}</h2>
+      <span class="blurb">{{ cat.blurb }}</span>
+    </div>
+    <div class="cards">
+      {% for art in catArticles %}
+      <article class="card">
+        {% if art.data.coverImage %}
+        <img src="{{ art.data.coverImage }}" alt="{{ art.data.title }}" loading="lazy" class="card-img">
+        {% else %}
+        <div class="ph r32 c{{ loop.index }}"></div>
+        {% endif %}
+        <span class="tag">{{ art.data.category }}</span>
+        <h3><a href="{{ art.url }}">{{ art.data.title }}</a></h3>
+        <p class="byline">By <strong>{{ art.data.author }}</strong>{% if art.data.authorBio %}, {{ art.data.authorBio }}{% endif %}</p>
+        <p class="summary">{{ art.data.excerpt | truncate(140) }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+
+</main>

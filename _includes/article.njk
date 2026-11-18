@@ -1,0 +1,73 @@
+---
+layout: base.njk
+---
+<main class="article-wrap">
+
+  {# Breadcrumb #}
+  <div class="crumbs">
+    <a href="/">Home</a>
+    {% if category %}
+    / <a href="/#{{ category | lower | replace(' & ', '-') | replace(' ', '-') }}">{{ category }}</a>
+    {% endif %}
+  </div>
+
+  <article>
+    <span class="tag">{{ category }}</span>
+    <h1>{{ title }}</h1>
+    {% if excerpt %}
+    <p class="subtitle">{{ excerpt }}</p>
+    {% endif %}
+
+    <div class="article-meta">
+      <span>By <strong>{{ author }}</strong>{% if authorBio %}, {{ authorBio }}{% endif %}</span>
+      <span>
+        <time datetime="{{ date | dateISO }}">{{ date | dateDisplay }}</time>
+        {% if readTime %} · {{ readTime }} min read{% endif %}
+      </span>
+    </div>
+
+    {# Featured image #}
+    {% if coverImage %}
+    <figure class="featured">
+      <img src="{{ coverImage }}" alt="{{ title }}" loading="lazy">
+      {% if imageCredit %}
+      <figcaption><em>{{ imageCredit }}</em></figcaption>
+      {% endif %}
+    </figure>
+    {% elif settings.defaultCoverImage %}
+    <figure class="featured">
+      <img src="{{ settings.defaultCoverImage }}" alt="{{ title }}" loading="lazy">
+      {% if imageCredit %}<figcaption><em>{{ imageCredit }}</em></figcaption>{% endif %}
+    </figure>
+    {% else %}
+    <figure class="featured">
+      <div class="ph r169 c1"></div>
+      {% if imageCredit %}<figcaption><em>{{ imageCredit }}</em></figcaption>{% endif %}
+    </figure>
+    {% endif %}
+
+    {# Article body — rendered from Markdown #}
+    <div class="article-body">
+      {{ content | safe }}
+    </div>
+
+    {# Author box #}
+    <aside class="author-box" aria-label="About the author">
+      {% if authorPhoto %}
+      <img class="avatar-img" src="{{ authorPhoto }}" alt="{{ author }}">
+      {% else %}
+      <div class="avatar" aria-hidden="true">
+        {{ author | truncate(2, true, "") | upper }}
+      </div>
+      {% endif %}
+      <div>
+        <h4>{{ author }}</h4>
+        {% if authorBio %}<p class="role">{{ authorBio }}</p>{% endif %}
+        {% if authorFullBio %}<p>{{ authorFullBio }}</p>{% endif %}
+      </div>
+    </aside>
+
+    <a class="read-more back-link" href="/">← Back to the front page</a>
+  </article>
+
+</main>

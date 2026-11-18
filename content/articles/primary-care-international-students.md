@@ -1,0 +1,16 @@
+---
+title: "Region Expands Primary Care Access for International Students"
+category: "News & Policy"
+date: 2026-10-20
+author: "Leila Haddad"
+authorBio: "MSc Global Health '28"
+published: true
+coverImage: ""
+imageCredit: ""
+excerpt: "Starting January 2027, international students enrolled at Gothenburg universities will be able to register with any health centre in the region."
+readTime: 3
+---
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.

@@ -1,0 +1,39 @@
+---
+layout: base.njk
+permalink: /team/index.html
+---
+<main class="wrap">
+
+  <div class="page-header">
+    <h1>Our Team</h1>
+    <p class="page-lead">{{ settings.siteTitle }} is run entirely by students from the Master of Public Health Science, Master of Global Health, and Master of Biostatistics programmes at Sahlgrenska Academy, University of Gothenburg.</p>
+  </div>
+
+  <div class="team-grid">
+    {% set sortedMembers = team.members | sort(false, false, "order") %}
+    {% for member in sortedMembers %}
+    <div class="team-card">
+      {% if member.photo %}
+      <img src="{{ member.photo }}" alt="{{ member.name }}" class="team-photo" loading="lazy">
+      {% else %}
+      <div class="team-avatar" aria-hidden="true">
+        {{ member.name | truncate(2, true, "") | upper }}
+      </div>
+      {% endif %}
+      <div class="team-info">
+        <h3>{{ member.name }}</h3>
+        <p class="team-role">{{ member.role }}</p>
+        <p class="team-programme">{{ member.programme }}</p>
+        <p class="team-bio">{{ member.bio }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="team-join">
+    <h2>Write for Us</h2>
+    <p>Are you a student at Sahlgrenska Academy with a story to tell or a perspective to share? We welcome contributions on health policy, research, global health and campus life.</p>
+    <p>Contact the editorial team at <a href="mailto:editor@thedeterminant.se">editor@thedeterminant.se</a>.</p>
+  </div>
+
+</main>

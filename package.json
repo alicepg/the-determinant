@@ -1,0 +1,12 @@
+{
+  "name": "the-determinant",
+  "version": "1.0.0",
+  "description": "The Determinant — EcoSGP Student Magazine, Sahlgrenska Academy",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
