@@ -1,6 +1,7 @@
 ---
 title: "Waiting Times in Region Västra Götaland Fall for the Third Quarter Running"
 category: "News & Policy"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-12
 author: "Maja Karlsson"
 authorBio: "MSc Public Health Science '27 · News Editor"

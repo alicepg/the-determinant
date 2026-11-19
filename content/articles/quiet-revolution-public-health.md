@@ -1,6 +1,7 @@
 ---
 title: "The Quiet Revolution in Public Health: How Gothenburg's Students Are Rethinking Care Beyond the Clinic"
 category: "Global Perspectives"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-17
 author: "Elin Andersson"
 authorBio: "MSc Public Health Science '28 · Features Editor"

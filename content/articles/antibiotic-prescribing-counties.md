@@ -1,6 +1,7 @@
 ---
 title: "Mapping Antibiotic Prescribing Across Swedish Counties"
 category: "Research & Data"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-10
 author: "Amara Okafor"
 authorBio: "MSc Infection Biology '27 · Research Editor"

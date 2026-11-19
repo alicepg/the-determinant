@@ -59,7 +59,7 @@ Article text goes here. Use ## for section headings.
 
 Category must be exactly one of: News & Policy, Research & Data, Global Perspectives, Career & Alumni, Campus Life, Op-Ed.
 
-**Images:** JPG or PNG, landscape 16:9 (about 1200 × 675 px) for covers, under 2 MB. Put them in `public/images/` and refer to them as `/images/file-name.jpg`.
+**Images:** every article needs a cover image. Use JPG or PNG, landscape 16:9 (about 1200 × 675 px), under 2 MB. Put them in `public/images/` and refer to them as `/images/file-name.jpg`.
 
 **Drafts:** set `published: false`. The article stays hidden until you set it back to `true`.
 
@@ -69,7 +69,7 @@ Category must be exactly one of: News & Policy, Research & Data, Global Perspect
 
 - **Team:** Pages CMS → Team Members. Set Display Order (1 = first).
 - **Issue text** (utility bar, volume number, issue subtitle): Pages CMS → Magazine Settings. There are three separate fields, so update all three when a new issue starts.
-- **New volume:** the volume label is currently set in code, in `content/articles/articles.11tydata.js` (the line that reads `volume: "Vol. 1 - Autumn 2026"`). Until that is changed to read from each article, a new volume needs that line edited. Ask the web editor to do this before the new volume starts.
+- **New volume:** set the **Volume** field on each article in Pages CMS (for example `Vol. 2 - Spring 2027`). The Archive groups articles by this field and adds a new section automatically. Every article needs a Volume value, or it appears under "Unknown".
 
 ---
 
@@ -111,10 +111,8 @@ If you want to change the design or add a feature with Claude, paste this first,
 Update this list when an item is fixed or a new one is found.
 
 - **Placeholder article text:** all 21 articles in `content/articles/` still have "Lorem ipsum" body text. Replace it with the real article before launch.
-- **Volume label is set in code:** `content/articles/articles.11tydata.js` gives every article `Vol. 1 - Autumn 2026`. Remove that default so each article's Volume field in Pages CMS decides its volume.
-- **Repository owner:** the repository sits under a personal GitHub account. Move it to a shared organization.
-- **Clutter in the repository root:** `ecosgp-logo-masthead.zip` and `read-next.zip` are not used by the site. Delete them or move them out of the repository.
-- **Missing default cover image:** `defaultCoverImage` in Magazine Settings is blank, and only two images exist in `public/images/`. Articles without a cover image may show no image. Upload a default and set it.
-- **Subscribe form:** the footer shows a "coming soon" note. Set `subscribeFormUrl` in Magazine Settings, or remove the note.
-- **Hardcoded contact address:** `editor@thedeterminant.se` appears in `_includes/base.njk` and `team.njk`. Change both places if the address changes.
-- **Team photos:** all team members currently have no photo. Check how Our Team looks without photos before launch.
+- **Repository owner:** the repository sits under a personal GitHub account. Move it to a shared organization. (Planned.)
+- **Clutter in the repository root:** `ecosgp-logo-masthead.zip` and `read-next.zip` are not used by the site. Delete them with `git rm`.
+- **Subscribe form:** the footer shows a "coming soon" note until the subscription backend is connected. (Planned for later.)
+- **Hardcoded contact address:** `editor@thedeterminant.se` appears in `_includes/base.njk` and `team.njk`. If the address changes, update both files.
+- **Team photos:** no team member has a photo yet. (Planned for later.)

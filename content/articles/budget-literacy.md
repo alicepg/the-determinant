@@ -1,6 +1,7 @@
 ---
 title: "Why Every Health Student Should Learn to Read a Budget"
 category: "Op-Ed"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-15
 author: "Oskar Lindqvist"
 authorBio: "MSc Global Health '28 · Deputy Editor"

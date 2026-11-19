@@ -1,6 +1,7 @@
 ---
 title: "Climate and Cholera: Rethinking Early Warning in South Asia"
 category: "Global Perspectives"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-18
 author: "Rahul Mehta"
 authorBio: "MSc Public Health Science '28"

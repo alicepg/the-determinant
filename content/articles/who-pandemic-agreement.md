@@ -1,6 +1,7 @@
 ---
 title: "The WHO Pandemic Agreement: A Student's Guide to the Negotiations"
 category: "Global Perspectives"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-10
 author: "Sara Lindgren"
 authorBio: "MSc Health Policy '27"

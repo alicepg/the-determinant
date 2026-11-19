@@ -1,6 +1,7 @@
 ---
 title: "Sleep, Screens and Adolescent Mental Health: New Findings from Gothenburg"
 category: "Research & Data"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-15
 author: "Ingrid Falk"
 authorBio: "MSc Public Health Science '28"

@@ -1,6 +1,7 @@
 ---
 title: "Study Spots at Medicinareberget, Ranked"
 category: "Campus Life"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-12
 author: "Julia Wallin"
 authorBio: "MSc Public Health Science '27"

@@ -1,6 +1,7 @@
 ---
 title: "Inside the Biobank: How Open Data Is Changing Cohort Studies"
 category: "Research & Data"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-25
 author: "Johan Eriksson"
 authorBio: "PhD Candidate, Epidemiology"

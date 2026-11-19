@@ -1,6 +1,7 @@
 ---
 title: "Faculty Board Approves Revised Public Health Curriculum for 2027"
 category: "News & Policy"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-28
 author: "Viktor Ahlström"
 authorBio: "MSc Public Health Science '27"

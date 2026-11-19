@@ -496,7 +496,7 @@ details[open] .archive-toggle-icon::after { opacity: 0; }
 }
 .footer .cols {
   display: grid;
-  grid-template-columns: 2.5fr 1fr 1fr;
+  grid-template-columns: 1fr 160px 160px;
   gap: 32px;
   margin-bottom: 24px;
 }

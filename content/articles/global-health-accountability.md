@@ -1,6 +1,7 @@
 ---
 title: "Global Health Is Not a Gap Year: A Case for Local Accountability"
 category: "Op-Ed"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-08
 author: "Daniel Reyes"
 authorBio: "MSc Global Health '27"

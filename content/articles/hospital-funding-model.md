@@ -1,6 +1,7 @@
 ---
 title: "Sweden's New Hospital Funding Model: What It Means for Västra Götaland"
 category: "News & Policy"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-03
 author: "Hanna Nilsson"
 authorBio: "MSc Health Economics '27"

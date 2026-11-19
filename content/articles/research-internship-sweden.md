@@ -1,6 +1,7 @@
 ---
 title: "How to Land a Research Internship at a Swedish Public Health Agency"
 category: "Career & Alumni"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-22
 author: "Nora Sjöberg"
 authorBio: "MSc Public Health Science '27"

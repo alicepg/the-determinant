@@ -1,6 +1,7 @@
 ---
 title: "Region Expands Primary Care Access for International Students"
 category: "News & Policy"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-20
 author: "Leila Haddad"
 authorBio: "MSc Global Health '28"

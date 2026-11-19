@@ -1,6 +1,7 @@
 ---
 title: "From MSc to WHO Geneva: Three Alumni on Breaking into Global Health"
 category: "Career & Alumni"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-14
 author: "Felix Strand"
 authorBio: "MSc Global Health '28 · Career Editor"

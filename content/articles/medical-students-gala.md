@@ -1,6 +1,7 @@
 ---
 title: "Inside the Medical Students' Association Annual Gala"
 category: "Campus Life"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-27
 author: "Anton Gustafsson"
 authorBio: "Medical Programme, Year 3"

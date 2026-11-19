@@ -1,6 +1,7 @@
 ---
 title: "Lessons from Rwanda's Community Health Worker Programme"
 category: "Global Perspectives"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-30
 author: "Claudine Uwase"
 authorBio: "MSc Global Health '27"

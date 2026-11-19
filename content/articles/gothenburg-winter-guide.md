@@ -1,6 +1,7 @@
 ---
 title: "A Student's Guide to Surviving Your First Winter in Gothenburg"
 category: "Campus Life"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-09
 author: "Mei Tanaka"
 authorBio: "MSc Global Health '28 · Campus Life Editor"

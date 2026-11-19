@@ -1,6 +1,7 @@
 ---
 title: "Alumni Spotlight: Building a Digital Health Startup in Gothenburg"
 category: "Career & Alumni"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-10-05
 author: "Emil Holm"
 authorBio: "MSc Health Informatics '28"

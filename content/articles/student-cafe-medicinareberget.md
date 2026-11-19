@@ -1,6 +1,7 @@
 ---
 title: "The Case for a Proper Student Café at Medicinareberget"
 category: "Campus Life"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-05
 author: "Sofia Berg"
 authorBio: "MSc Public Health Science '28"

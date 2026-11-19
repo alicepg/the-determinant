@@ -1,6 +1,7 @@
 ---
 title: "Antibiotic Resistance in Nordic Hospitals: A Five-Year Data Review"
 category: "Research & Data"
+volume: "Vol. 1 - Autumn 2026"
 date: 2026-11-01
 author: "Amara Okafor"
 authorBio: "MSc Infection Biology '27 · Research Editor"
