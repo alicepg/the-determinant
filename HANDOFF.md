@@ -114,5 +114,5 @@ Update this list when an item is fixed or a new one is found.
 - **Repository owner:** the repository sits under a personal GitHub account. Move it to a shared organization. (Planned.)
 - **Clutter in the repository root:** `ecosgp-logo-masthead.zip` and `read-next.zip` are not used by the site. Delete them with `git rm`.
 - **Subscribe form:** the footer shows a "coming soon" note until the subscription backend is connected. (Planned for later.)
-- **Hardcoded contact address:** `editor@thedeterminant.se` appears in `_includes/base.njk` and `team.njk`. If the address changes, update both files.
+- ~~**Hardcoded contact address**~~ — Fixed. The contact email is now `settings.contactEmail` in `data/settings.json`, editable through Pages CMS → Magazine Settings → Contact Email. Both `_includes/base.njk` and `team.njk` read from it.
 - **Team photos:** no team member has a photo yet. (Planned for later.)

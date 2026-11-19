@@ -24,6 +24,9 @@ content:
       - name: issueSubtitle
         label: "Issue Subtitle (e.g. Issue 1 · Autumn 2026)"
         type: string
+      - name: contactEmail
+        label: "Contact Email (shown in the footer, used for Contact and Write for Us links)"
+        type: string
       - name: editorialNote
         label: "Editorial Note"
         type: text
