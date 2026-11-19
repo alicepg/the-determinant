@@ -14,7 +14,7 @@ permalink: /archive/index.html
 
   {% for volLabel, volArticles in grouped %}
   <section class="archive-volume">
-    <details {% if loop.first %}open{% endif %}>
+    <details>
       <summary class="archive-volume-head">
         <h2>{{ volLabel }}</h2>
         <span class="archive-toggle-icon" aria-hidden="true"></span>
