@@ -6,8 +6,8 @@ pagination:
   alias: cat
 permalink: "/category/{{ cat.id }}/"
 eleventyComputed:
-  title: "{{ cat.name }}"
-  category: "{{ cat.name }}"
+  title: "{{ cat.name | safe }}"
+  category: "{{ cat.name | safe }}"
 ---
 {% set catArticles = collections.articles | publishedOnly | byCategory(cat.name) | sortByDate %}
 <main class="wrap team-page">
