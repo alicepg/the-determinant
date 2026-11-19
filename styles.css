@@ -111,7 +111,7 @@ a:hover { color: var(--accent); }
 .masthead {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 28px 24px 18px;
+  padding: 24px 24px;
   display: flex;
   justify-content: flex-start;
 }
