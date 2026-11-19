@@ -300,21 +300,32 @@ section[id], #top { scroll-margin-top: calc(var(--nav-h) + 8px); }
   font-weight: 800;
   font-size: 28px;
 }
+.section-head .section-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  text-align: right;
+}
 .section-head .blurb { font-size: 13.5px; color: var(--ink-soft); }
+.section-head .see-all {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.section-head .see-all:hover { text-decoration: underline; }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-/* Fewer than 3 cards on the homepage: don't stretch them to 1/3 width each
-   and leave an empty gap — use 2 even columns, or 1 full-width card. */
-.cards:has(.card:nth-child(2)):not(:has(.card:nth-child(3))) {
-  grid-template-columns: repeat(2, 1fr);
-}
-.cards:not(:has(.card:nth-child(2))) {
-  grid-template-columns: 1fr;
-}
-.cards:not(:has(.card:nth-child(2))) .card { max-width: 480px; }
+/* Cards always keep the same width as a full row of 3, whatever the count,
+   so every section reads at a consistent size. Fewer than 3 just leaves
+   quiet empty space at the end of the row — no stray border, since the
+   divider is only ever drawn on the left of a card that exists. */
 
 /* Full category archive page: as many articles as exist, wraps to new rows,
    so it uses gaps instead of the homepage's divider-border trick. */
