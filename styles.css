@@ -569,7 +569,7 @@ details[open] .archive-toggle-icon::after { opacity: 0; }
    ARTICLE PAGE
    ========================================================== */
 .article-wrap {
-  max-width: 760px;
+  max-width: var(--maxw);
   margin: 0 auto;
   padding: 36px 24px 60px;
 }
@@ -623,6 +623,7 @@ figure.featured figcaption em { color: var(--ink-faint); font-style: normal; }
 /* Article body — override any inline styles from copy-paste */
 .article-body {
   /* Reset any pasted inline styles from Word/Google Docs */
+  max-width: 720px;
 }
 .article-body * {
   max-width: 100%;
