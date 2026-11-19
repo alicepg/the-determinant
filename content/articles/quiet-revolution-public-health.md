@@ -11,6 +11,17 @@ coverImage: "/images/gothenburg-library.png"
 imageCredit: "The University of Gothenburg library. Photo: University of Gothenburg"
 excerpt: "From neighbourhood outreach to open-data dashboards, a new generation at Sahlgrenska Academy is asking where health is really made."
 readTime: 8
+sources:
+  - authors: "World Health Organization"
+    year: "2023"
+    title: "Social determinants of health"
+    source: "World Health Organization"
+    url: "https://www.who.int/health-topics/social-determinants-of-health"
+  - authors: "Marmot, M., & Allen, J."
+    year: "2014"
+    title: "Social determinants of health equity"
+    source: "American Journal of Public Health, 104(S4)"
+    url: "https://doi.org/10.2105/AJPH.2014.302200"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

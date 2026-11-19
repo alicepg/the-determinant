@@ -668,6 +668,42 @@ blockquote.pull cite {
   color: var(--ink-soft);
 }
 
+/* ---------- References (APA-style source list) ---------- */
+.references {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.references h2 {
+  margin: 0 0 14px;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 20px;
+}
+.references ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ref;
+}
+.references li {
+  counter-increment: ref;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  padding: 8px 0 8px 2em;
+  text-indent: -2em;
+  border-bottom: 1px solid var(--rule);
+}
+.references li:last-child { border-bottom: 0; }
+.references li::before {
+  content: "[" counter(ref) "] ";
+  color: var(--ink-faint);
+  font-weight: 600;
+}
+.references em { font-style: italic; color: var(--ink); }
+.references a { color: var(--accent); border-bottom: 1px solid currentColor; word-break: break-all; }
+
 .author-box {
   display: grid;
   grid-template-columns: 84px 1fr;

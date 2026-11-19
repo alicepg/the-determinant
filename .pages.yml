@@ -124,6 +124,25 @@ content:
       - name: readTime
         label: "Read Time (minutes)"
         type: number
+      - name: sources
+        label: "Sources (shown as an APA reference list at the end of the article)"
+        list: true
+        fields:
+          - name: authors
+            label: "Author(s) — APA style, e.g. Andersson, E., & Berg, S."
+            type: string
+          - name: year
+            label: "Year (e.g. 2026, or n.d. if unknown)"
+            type: string
+          - name: title
+            label: "Title of the source"
+            type: string
+          - name: source
+            label: "Publication / Website / Journal name"
+            type: string
+          - name: url
+            label: "Link (optional)"
+            type: string
       - name: body
         label: "Article Body"
         type: rich-text

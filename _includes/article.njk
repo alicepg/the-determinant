@@ -51,6 +51,20 @@ layout: base.njk
       {{ content | safe }}
     </div>
 
+    {# Sources — rendered as an APA-style reference list #}
+    {% if sources and sources.length %}
+    <section class="references" aria-label="Sources">
+      <h2>References</h2>
+      <ol>
+        {% for s in sources %}
+        <li>
+          {% if s.authors %}{{ s.authors }} {% endif %}{% if s.year %}({{ s.year }}). {% endif %}{% if s.title %}{{ s.title }}. {% endif %}{% if s.source %}<em>{{ s.source }}</em>. {% endif %}{% if s.url %}<a href="{{ s.url }}">{{ s.url }}</a>{% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endif %}
+
     {# Author box #}
     <aside class="author-box" aria-label="About the author">
       {% if authorPhoto %}
