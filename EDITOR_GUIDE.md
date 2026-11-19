@@ -57,7 +57,24 @@ Click **Save**. If **Published** is ON, the article will appear on the site with
 | **Image Credit** | No | Photographer or source credit |
 | **Excerpt** | Yes | 1–2 sentences shown on cards and in the article subtitle. Keep it under 200 characters. |
 | **Read Time** | No | Estimated minutes, e.g. `4` |
+| **Sources** | No | See "Adding Sources / Citations" below |
 | **Article Body** | Yes | The full article text |
+
+---
+
+## Adding Sources / Citations
+
+If your article cites sources, you can list them in the **Sources** field and they'll appear as a numbered "References" list at the end of the article, formatted in APA style automatically — you don't need to format the citation yourself.
+
+1. Click **Add Source** (you can add as many as you need).
+2. Fill in:
+   - **Author(s)** — in APA order, e.g. `Andersson, E., & Berg, S.` or an organization name like `World Health Organization`
+   - **Year** — e.g. `2026`, or `n.d.` if there's no date
+   - **Title** — the title of the article, report or page you're citing
+   - **Publication / Website / Journal name**
+   - **Link** — optional, but recommended so readers can check the source
+3. The site builds the citation from these fields in the order: Author(s) (Year). Title. *Publication*. Link.
+4. Sources are optional — articles without any just won't show a References section.
 
 ---
 
