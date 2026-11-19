@@ -57,7 +57,7 @@ layout: base.njk
   <section class="category" id="{{ cat.id }}">
     <div class="section-head">
       <h2>{{ cat.name }}</h2>
-      <span class="blurb">{{ cat.blurb }}</span>
+      <span class="blurb">{{ cat.blurb }} · <a href="/category/{{ cat.id }}/">See all →</a></span>
     </div>
     <div class="cards">
       {% for art in catArticles %}

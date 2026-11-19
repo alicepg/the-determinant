@@ -11,7 +11,7 @@
   --rule-dark: #1A4D8F;
   --paper: #ffffff;
   --paper-tint: #f0f4f9;
-  --accent: #014793;
+  --accent: #2E6DB4;
   --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --maxw: 1200px;
@@ -306,6 +306,25 @@ section[id], #top { scroll-margin-top: calc(var(--nav-h) + 8px); }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+/* Fewer than 3 cards on the homepage: don't stretch them to 1/3 width each
+   and leave an empty gap — use 2 even columns, or 1 full-width card. */
+.cards:has(.card:nth-child(2)):not(:has(.card:nth-child(3))) {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cards:not(:has(.card:nth-child(2))) {
+  grid-template-columns: 1fr;
+}
+.cards:not(:has(.card:nth-child(2))) .card { max-width: 480px; }
+
+/* Full category archive page: as many articles as exist, wraps to new rows,
+   so it uses gaps instead of the homepage's divider-border trick. */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px 28px;
+  padding: 8px 0 48px;
+}
+.category-grid .card { padding: 0; border: 0; }
 .card {
   padding: 0 24px;
   border-left: 1px solid var(--rule);

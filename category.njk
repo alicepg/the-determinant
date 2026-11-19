@@ -1,0 +1,37 @@
+---
+layout: base.njk
+pagination:
+  data: categories
+  size: 1
+  alias: cat
+permalink: "/category/{{ cat.id }}/"
+eleventyComputed:
+  title: "{{ cat.name }}"
+  category: "{{ cat.name }}"
+---
+{% set catArticles = collections.articles | publishedOnly | byCategory(cat.name) | sortByDate %}
+<main class="wrap team-page">
+  <div class="crumbs"><a href="/">Home</a> / {{ cat.name }}</div>
+  <h2 class="page-title">{{ cat.name }}</h2>
+  <p class="page-intro">{{ cat.blurb }}</p>
+
+  {% if catArticles.length %}
+  <div class="category-grid">
+    {% for art in catArticles %}
+    <article class="card">
+      {% if art.data.coverImage %}
+      <img src="{{ art.data.coverImage }}" alt="{{ art.data.title }}" loading="lazy" class="card-img">
+      {% else %}
+      <div class="ph r32 c{{ loop.index }}"></div>
+      {% endif %}
+      <span class="tag">{{ art.data.category }}</span>
+      <h3><a href="{{ art.url }}">{{ art.data.title }}</a></h3>
+      <p class="byline">By <strong>{{ art.data.author }}</strong>{% if art.data.authorBio %}, {{ art.data.authorBio }}{% endif %} · <time datetime="{{ art.data.date | dateISO }}">{{ art.data.date | dateDisplay }}</time></p>
+      <p class="summary">{{ art.data.excerpt | truncate(140) }}</p>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No articles published in this section yet.</p>
+  {% endif %}
+</main>
