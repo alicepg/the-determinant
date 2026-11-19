@@ -11,7 +11,7 @@
   --rule-dark: #1A4D8F;
   --paper: #ffffff;
   --paper-tint: #f0f4f9;
-  --accent: #2E6DB4;
+  --accent: #014793;
   --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --maxw: 1200px;
@@ -109,9 +109,11 @@ a:hover { color: var(--accent); }
 
 /* ---------- Masthead ---------- */
 .masthead {
+  max-width: var(--maxw);
+  margin: 0 auto;
   padding: 28px 24px 18px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .masthead-inner {
   display: flex;
