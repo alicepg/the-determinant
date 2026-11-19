@@ -28,5 +28,11 @@
     "name": "Campus Life",
     "slug": "Campus Life",
     "blurb": "Student culture, community and everyday life at the Academy"
+  },
+  {
+    "id": "op-ed",
+    "name": "Op-Ed",
+    "slug": "Op-Ed",
+    "blurb": "Opinion and commentary from students and contributors"
   }
 ]

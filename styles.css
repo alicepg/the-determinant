@@ -88,8 +88,11 @@ a:hover { color: var(--accent); }
   gap: 16px;
   min-height: 42px;
 }
-.utility .edition { letter-spacing: .02em; }
+.utility .edition { letter-spacing: .02em; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .utility .edition strong { color: var(--ink); font-weight: 600; }
+.utility-nav { display: flex; gap: 12px; }
+.utility-nav a { color: var(--ink-faint); text-decoration: none; font-size: 12.5px; letter-spacing: .03em; transition: color .15s; }
+.utility-nav a:hover, .utility-nav a.active { color: var(--ink-soft); }
 .btn-subscribe {
   display: inline-block;
   background: var(--accent);

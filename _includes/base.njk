@@ -35,9 +35,8 @@
 
   <link rel="stylesheet" href="/styles.css">
 
-  {# ── Analytics placeholder ───────────────────────────────────────────── #}
+  {# ── Analytics ───────────────────────────────────────────────────────── #}
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2a40f4ab550e497ea332b8f9b3c0ab89"}'></script><!-- End Cloudflare Web Analytics -->
-  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script> -->
 </head>
 <body id="top">
 
@@ -45,7 +44,11 @@
   <div class="utility">
     <div class="wrap">
       <div class="edition">
-        <strong>{{ settings.utilityLine }}</strong> | Sahlgrenska Academy, University of Gothenburg
+        <strong>{{ settings.utilityLine }}</strong>
+        <span class="utility-nav">
+          <a href="/archive/" {% if page.url == "/archive/" %}class="active"{% endif %}>Archive</a>
+          <a href="/team/"    {% if page.url == "/team/"    %}class="active"{% endif %}>Our Team</a>
+        </span>
       </div>
       <a class="btn-subscribe" href="/#subscribe">Subscribe to Monthly Issue</a>
     </div>
@@ -76,8 +79,6 @@
           </a>
         </li>
         {% endfor %}
-        <li><a href="/archive/" {% if page.url == "/archive/" %}class="active"{% endif %}>Archive</a></li>
-        <li><a href="/team/"    {% if page.url == "/team/"    %}class="active"{% endif %}>Our Team</a></li>
       </ul>
     </div>
   </nav>
