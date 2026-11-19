@@ -70,10 +70,10 @@
   <nav class="nav" aria-label="Categories">
     <div class="wrap">
       <ul>
-        <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
+        <li><a href="/" data-nav-id="" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
         {% for cat in categories %}
         <li>
-          <a href="/category/{{ cat.id }}/"
+          <a href="/category/{{ cat.id }}/" data-nav-id="{{ cat.id }}"
              {% if cat.name == category %}class="active"{% endif %}>
             {{ cat.name }}
           </a>
@@ -133,14 +133,14 @@
       if (window.location.pathname !== '/') return;
       var links = document.querySelectorAll('.nav a');
       var map = {};
-      links.forEach(function (a) { map[a.getAttribute('href')] = a; });
+      links.forEach(function (a) { map[a.getAttribute('data-nav-id')] = a; });
       var sections = document.querySelectorAll('section.category');
       if (!('IntersectionObserver' in window)) return;
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (e.isIntersecting) {
             links.forEach(function (a) { a.classList.remove('active'); });
-            var l = map['/#' + e.target.id];
+            var l = map[e.target.id];
             if (l) l.classList.add('active');
           }
         });
@@ -149,7 +149,7 @@
       window.addEventListener('scroll', function () {
         if (window.scrollY < 300) {
           links.forEach(function (a) { a.classList.remove('active'); });
-          if (map['/']) map['/'].classList.add('active');
+          if (map['']) map[''].classList.add('active');
         }
       }, { passive: true });
     })();
