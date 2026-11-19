@@ -126,7 +126,10 @@ content:
         type: number
       - name: sources
         label: "Sources (shown as an APA reference list at the end of the article)"
-        list: true
+        type: object
+        list:
+          collapsible:
+            summary: "{title}"
         fields:
           - name: authors
             label: "Author(s) — APA style, e.g. Andersson, E., & Berg, S."
