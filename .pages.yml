@@ -84,12 +84,13 @@ content:
         label: "Category"
         type: select
         options:
-          - "News & Policy"
-          - "Research & Data"
-          - "Global Perspectives"
-          - "Career & Alumni"
-          - "Campus Life"
-          - "Op-Ed"
+          values:
+            - "News & Policy"
+            - "Research & Data"
+            - "Global Perspectives"
+            - "Career & Alumni"
+            - "Campus Life"
+            - "Op-Ed"
       - name: volume
         label: "Volume (e.g. Vol. 1 - Autumn 2026)"
         type: string
