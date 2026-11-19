@@ -2,6 +2,7 @@ node_modules
 _site
 README.md
 EDITOR_GUIDE.md
+HANDOFF.md
 package.json
 package-lock.json
 .pages.yml
