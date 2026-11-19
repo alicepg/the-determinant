@@ -11,7 +11,8 @@ layout: base.njk
     {% endif %}
   </div>
 
-  <article>
+  {# Headline block — spans the full article-wrap width #}
+  <div class="article-head">
     <span class="tag">{{ category }}</span>
     <h1>{{ title }}</h1>
     {% if excerpt %}
@@ -25,90 +26,96 @@ layout: base.njk
         {% if readTime %} · {{ readTime }} min read{% endif %}
       </span>
     </div>
+  </div>
 
-    {# Featured image #}
-    {% if coverImage %}
-    <figure class="featured">
-      <img src="{{ coverImage }}" alt="{{ title }}" loading="lazy">
-      {% if imageCredit %}
-      <figcaption><em>{{ imageCredit }}</em></figcaption>
+  {# ── Two-column layout: article content on the left, Read next sidebar on the right ── #}
+  {% set others = collections.all | publishedOnly | excludeUrl(page.url) %}
+  {% set samecat = others | byCategory(category) | limit(4) %}
+  {% set anyfour = others | limit(4) %}
+  {% set readnext = samecat if samecat | length > 0 else anyfour %}
+
+  <div class="article-layout">
+    <article>
+      {# Featured image #}
+      {% if coverImage %}
+      <figure class="featured">
+        <img src="{{ coverImage }}" alt="{{ title }}" loading="lazy">
+        {% if imageCredit %}
+        <figcaption><em>{{ imageCredit }}</em></figcaption>
+        {% endif %}
+      </figure>
+      {% elif settings.defaultCoverImage %}
+      <figure class="featured">
+        <img src="{{ settings.defaultCoverImage }}" alt="{{ title }}" loading="lazy">
+        {% if imageCredit %}<figcaption><em>{{ imageCredit }}</em></figcaption>{% endif %}
+      </figure>
+      {% else %}
+      <figure class="featured">
+        <div class="ph r169 c1"></div>
+        {% if imageCredit %}<figcaption><em>{{ imageCredit }}</em></figcaption>{% endif %}
+      </figure>
       {% endif %}
-    </figure>
-    {% elif settings.defaultCoverImage %}
-    <figure class="featured">
-      <img src="{{ settings.defaultCoverImage }}" alt="{{ title }}" loading="lazy">
-      {% if imageCredit %}<figcaption><em>{{ imageCredit }}</em></figcaption>{% endif %}
-    </figure>
-    {% else %}
-    <figure class="featured">
-      <div class="ph r169 c1"></div>
-      {% if imageCredit %}<figcaption><em>{{ imageCredit }}</em></figcaption>{% endif %}
-    </figure>
-    {% endif %}
 
-    {# Article body — rendered from Markdown #}
-    <div class="article-body">
-      {{ content | safe }}
-    </div>
+      {# Article body — rendered from Markdown #}
+      <div class="article-body">
+        {{ content | safe }}
+      </div>
 
-    {# Sources — rendered as an APA-style reference list #}
-    {% if sources and sources.length %}
-    <section class="references" aria-label="Sources">
-      <h2>References</h2>
-      <ol>
-        {% for s in sources %}
+      {# Sources — rendered as an APA-style reference list #}
+      {% if sources and sources.length %}
+      <section class="references" aria-label="Sources">
+        <h2>References</h2>
+        <ol>
+          {% for s in sources %}
+          <li>
+            {% if s.authors %}{{ s.authors }} {% endif %}{% if s.year %}({{ s.year }}). {% endif %}{% if s.title %}{{ s.title }}. {% endif %}{% if s.source %}<em>{{ s.source }}</em>. {% endif %}{% if s.url %}<a href="{{ s.url }}">{{ s.url }}</a>{% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </section>
+      {% endif %}
+
+      {# Author box #}
+      <aside class="author-box" aria-label="About the author">
+        {% if authorPhoto %}
+        <img class="avatar-img" src="{{ authorPhoto }}" alt="{{ author }}">
+        {% else %}
+        <div class="avatar" aria-hidden="true">
+          {{ author | truncate(2, true, "") | upper }}
+        </div>
+        {% endif %}
+        <div>
+          <h4>{{ author }}</h4>
+          {% if authorBio %}<p class="role">{{ authorBio }}</p>{% endif %}
+          {% if authorFullBio %}<p>{{ authorFullBio }}</p>{% endif %}
+        </div>
+      </aside>
+
+      <a class="read-more back-link" href="/">← Back to the front page</a>
+    </article>
+
+    {# ── Read next sidebar (same style as the homepage "Latest & Op-Eds" sidebar) ── #}
+    {% if readnext | length > 0 %}
+    <aside class="sidebar read-next-sidebar" aria-label="Read next">
+      <h3>Read next</h3>
+      <ol class="latest">
+        {% for item in readnext %}
         <li>
-          {% if s.authors %}{{ s.authors }} {% endif %}{% if s.year %}({{ s.year }}). {% endif %}{% if s.title %}{{ s.title }}. {% endif %}{% if s.source %}<em>{{ s.source }}</em>. {% endif %}{% if s.url %}<a href="{{ s.url }}">{{ s.url }}</a>{% endif %}
+          <div>
+            <span class="tag">{{ item.data.category }}</span>
+            <h4><a href="{{ item.url }}">{{ item.data.title }}</a></h4>
+            <p class="byline">{{ item.data.author }}{% if item.data.readTime %} · {{ item.data.readTime }} min read{% endif %}</p>
+          </div>
+          {% if item.data.coverImage %}
+          <img src="{{ item.data.coverImage }}" alt="" loading="lazy" class="sidebar-thumb">
+          {% else %}
+          <div class="ph sq c{{ loop.index }}"></div>
+          {% endif %}
         </li>
         {% endfor %}
       </ol>
-    </section>
-    {% endif %}
-
-    {# Author box #}
-    <aside class="author-box" aria-label="About the author">
-      {% if authorPhoto %}
-      <img class="avatar-img" src="{{ authorPhoto }}" alt="{{ author }}">
-      {% else %}
-      <div class="avatar" aria-hidden="true">
-        {{ author | truncate(2, true, "") | upper }}
-      </div>
-      {% endif %}
-      <div>
-        <h4>{{ author }}</h4>
-        {% if authorBio %}<p class="role">{{ authorBio }}</p>{% endif %}
-        {% if authorFullBio %}<p>{{ authorFullBio }}</p>{% endif %}
-      </div>
     </aside>
-
-    <a class="read-more back-link" href="/">← Back to the front page</a>
-  </article>
-
-  {# ── Read next ───────────────────────────────────────────────────────── #}
-  {% set others = collections.all | publishedOnly | excludeUrl(page.url) %}
-  {% set samecat = others | byCategory(category) | limit(3) %}
-  {% set anythree = others | limit(3) %}
-  {% set readnext = samecat if samecat | length > 0 else anythree %}
-  {% if readnext | length > 0 %}
-  <section class="read-next" aria-label="Read next">
-    <h2 class="read-next-head">Read next</h2>
-    <div class="read-next-grid">
-      {% for item in readnext %}
-      <a href="{{ item.url }}" class="read-next-card">
-        {% if item.data.coverImage %}
-        <img src="{{ item.data.coverImage }}" alt="{{ item.data.title }}" class="card-img" loading="lazy">
-        {% else %}
-        <div class="ph r32 c{{ loop.index }}"></div>
-        {% endif %}
-        <div class="read-next-info">
-          <span class="tag">{{ item.data.category }}</span>
-          <h3>{{ item.data.title }}</h3>
-          <p class="byline">{{ item.data.author }}</p>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
-  </section>
-  {% endif %}
+    {% endif %}
+  </div>
 
 </main>

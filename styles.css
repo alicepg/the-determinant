@@ -610,6 +610,14 @@ details[open] .archive-toggle-icon::after { opacity: 0; }
 }
 .article-meta strong { color: var(--ink); }
 
+/* Two-column layout: article content + Read next sidebar */
+.article-layout {
+  display: grid;
+  grid-template-columns: 720px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
 figure.featured { margin: 0 0 30px; }
 figure.featured img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
 figure.featured figcaption {
@@ -624,7 +632,6 @@ figure.featured figcaption em { color: var(--ink-faint); font-style: normal; }
 /* Article body — override any inline styles from copy-paste */
 .article-body {
   /* Reset any pasted inline styles from Word/Google Docs */
-  max-width: 720px;
 }
 .article-body * {
   max-width: 100%;
@@ -738,39 +745,7 @@ blockquote.pull cite {
 .back-link { display: inline-block; margin-top: 32px; }
 
 /* ---------- Read next ---------- */
-.read-next {
-  border-top: 3px solid var(--rule-dark);
-  padding: 28px 0 48px;
-  max-width: 760px;
-  margin: 32px auto 0;
-}
-.read-next-head {
-  font-family: var(--serif);
-  font-weight: 800;
-  font-size: 22px;
-  margin: 0 0 20px;
-}
-.read-next-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.read-next-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--ink);
-}
-.read-next-card:hover h3 { color: var(--accent); }
-.read-next-card h3 {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 4px;
-  transition: color .15s;
-}
-.read-next-info .byline { font-size: 13px; }
+.read-next-sidebar { padding-left: 0; }
 
 /* ==========================================================
    RESPONSIVE
@@ -779,6 +754,8 @@ blockquote.pull cite {
   .hero { grid-template-columns: 1fr; }
   .cover { padding-right: 0; border-right: 0; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
   .sidebar { padding-left: 0; padding-top: 28px; }
+  .article-layout { grid-template-columns: 1fr; gap: 0; }
+  .read-next-sidebar { padding-top: 28px; }
 
   .cards { grid-template-columns: 1fr; }
   .card {
