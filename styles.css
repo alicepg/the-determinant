@@ -440,12 +440,12 @@ details[open] .archive-toggle-icon::after { opacity: 0; }
 }
 .team-photo {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 .team-avatar {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: linear-gradient(135deg, #b8ccdf, #1A4D8F);
   display: grid;
   place-items: center;
