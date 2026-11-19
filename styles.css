@@ -122,7 +122,7 @@ a:hover { color: var(--accent); }
   text-decoration: none;
 }
 .masthead-logo {
-  width: 155px;
+  width: 119px;
   height: 155px;
   object-fit: contain;
   flex-shrink: 0;
@@ -783,7 +783,7 @@ blockquote.pull cite {
   .utility .edition { font-size: 12px; line-height: 1.4; }
   .btn-subscribe { width: 100%; text-align: center; }
   .masthead { padding-top: 20px; }
-  .masthead-logo { width: 70px; height: 70px; }
+  .masthead-logo { width: 54px; height: 70px; }
   .nav ul { justify-content: flex-start; }
   .nav a { padding: 0 12px; }
   .section-head { flex-direction: column; gap: 4px; }
